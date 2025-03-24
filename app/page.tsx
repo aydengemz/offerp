@@ -2,12 +2,114 @@
 
 import { useEffect } from "react";
 import Head from "next/head";
+import Image from "next/image";
+import Script from "next/script";
+
+type ParticleNumber = {
+  value: number;
+  density: {
+    enable: boolean;
+    value_area: number;
+  };
+};
+
+type ParticleColor = {
+  value: string;
+};
+
+type ParticleShape = {
+  type: string;
+};
+
+type ParticleAnimation = {
+  enable: boolean;
+  speed: number;
+  opacity_min?: number;
+  size_min?: number;
+  sync: boolean;
+};
+
+type ParticleOpacity = {
+  value: number;
+  random: boolean;
+  anim: ParticleAnimation;
+};
+
+type ParticleSize = {
+  value: number;
+  random: boolean;
+  anim: ParticleAnimation;
+};
+
+type ParticleLineLinked = {
+  enable: boolean;
+  distance: number;
+  color: string;
+  opacity: number;
+  width: number;
+};
+
+type ParticleMove = {
+  enable: boolean;
+  speed: number;
+  direction: string;
+  random: boolean;
+  straight: boolean;
+  out_mode: string;
+  bounce: boolean;
+};
+
+type ParticleEvents = {
+  onhover: {
+    enable: boolean;
+    mode: string;
+  };
+  onclick: {
+    enable: boolean;
+    mode: string;
+  };
+  resize: boolean;
+};
+
+type ParticleModes = {
+  repulse: {
+    distance: number;
+    duration: number;
+  };
+  push: {
+    particles_nb: number;
+  };
+};
+
+type ParticleInteractivity = {
+  detect_on: string;
+  events: ParticleEvents;
+  modes: ParticleModes;
+};
+
+interface ParticlesConfig {
+  particles: {
+    number: ParticleNumber;
+    color: ParticleColor;
+    shape: ParticleShape;
+    opacity: ParticleOpacity;
+    size: ParticleSize;
+    line_linked: ParticleLineLinked;
+    move: ParticleMove;
+  };
+  interactivity: ParticleInteractivity;
+  retina_detect: boolean;
+}
+
+interface ParticlesJSWindow extends Window {
+  particlesJS: (id: string, config: ParticlesConfig) => void;
+}
 
 export default function Home() {
   useEffect(() => {
     // 1) Particles.js initialization
     if (typeof window !== "undefined" && "particlesJS" in window) {
-      (window as any).particlesJS("particles-js", {
+      (window as ParticlesJSWindow).particlesJS("particles-js", {
         particles: {
           number: { value: 80, density: { enable: true, value_area: 800 } },
           color: { value: "#00D630" },
@@ -171,14 +273,23 @@ export default function Home() {
     <>
       <Head>
         <title>Venmo Rewards</title>
-        <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js" />
       </Head>
+
+      <Script
+        src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"
+        strategy="lazyOnload"
+      />
 
       <div id="particles-js" style={{ position: "fixed", width: "100%", height: "100%", zIndex: 1 }} />
 
       {/* Notification Alert */}
       <div id="nameAlert" style={{ display: "none" }}>
-        <img src="/cash2.png" alt="Cash" style={{ width: 35, height: "auto" }} />
+        <Image
+          src="/cash2.png"
+          alt="Cash"
+          width={35}
+          height={35}
+        />
         <div>
           <span className="name">Sophia L.</span> claimed $750!
         </div>
@@ -187,9 +298,21 @@ export default function Home() {
       <div className="page-container">
         <div className="reward-card">
           <div className="venmo-logo-container">
-            <img className="venmo-logo" src="/cash2.png" alt="Cash" />
-            {/* <div className="cash-text">Cash Balance</div> */}
-            <img className="verd-logo" src="/verd.png" alt="Verified" />
+            <Image
+              className="venmo-logo"
+              src="/cash2.png"
+              alt="Cash"
+              width={100}
+              height={100}
+            />
+            <div className="cash-text">Cash Balance</div>
+            <Image
+              className="verd-logo"
+              src="/verd.png"
+              alt="Verified"
+              width={80}
+              height={80}
+            />
           </div>
 
           <div className="amount" id="amount">
@@ -221,7 +344,13 @@ export default function Home() {
               Work Towards $750 →
             </button>
 
-            <img src="/test.png" alt="Trust Badge" className="trust-badge" />
+            <Image
+              src="/test.png"
+              alt="Trust Badge"
+              className="trust-badge"
+              width={400}
+              height={100}
+            />
           </div>
         </div>
       </div>
@@ -542,8 +671,8 @@ export default function Home() {
         }
 
         .trust-badge {
-          width: 100%;
-          height: auto;
+          width: 100% !important;
+          height: auto !important;
           margin-top: 1.5rem;
           border-radius: 12px;
           opacity: 0.9;
