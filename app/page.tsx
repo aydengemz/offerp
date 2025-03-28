@@ -345,11 +345,12 @@ export default function Home() {
             </button>
 
             <Image
-              src="/test.png"
+              src="/trus2.png"
               alt="Trust Badge"
               className="trust-badge"
-              width={400}
-              height={100}
+              layout="responsive"
+              width={100}
+              height={50}
             />
           </div>
         </div>
@@ -673,7 +674,7 @@ export default function Home() {
         .trust-badge {
           width: 100% !important;
           height: auto !important;
-          margin-top: 1.5rem;
+          margin-top: 0.5rem;
           border-radius: 12px;
           opacity: 0.9;
           transition: opacity 0.3s ease;
