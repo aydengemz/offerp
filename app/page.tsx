@@ -264,7 +264,7 @@ export default function Home() {
     if (claimBtn) {
       claimBtn.addEventListener("click", () => {
         window.location.href =
-          "https://glstrck.com/aff_c?offer_id=1084&aff_id=11848&source=newlander";
+          "https://glstrk.com/?offer_ids=MTIzMiwxMDg0&affiliate_id=MTE4NDg%3D";
       });
     }
   }, []);
