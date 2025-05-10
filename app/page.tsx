@@ -266,7 +266,7 @@ export default function Home() {
     if (claimBtn) {
       claimBtn.addEventListener("click", () => {
         window.location.href =
-          "https://glstrck.com/aff_c?offer_id=671&aff_id=11848";
+          "https://glstrck.com/aff_c?offer_id=1232&aff_id=11848";
       });
     }
   }, []);
@@ -307,7 +307,7 @@ export default function Home() {
               width={100}
               height={100}
             />
-            <div className="cash-text">Cash Balance</div>
+            <div className="cash-text">Bank Balance</div>
             <Image
               className="verd-logo"
               src="/verd.png"
