@@ -266,7 +266,7 @@ export default function Home() {
     if (claimBtn) {
       claimBtn.addEventListener("click", () => {
         window.location.href =
-          "https://glstrck.com/aff_c?offer_id=1232&aff_id=11848";
+          "https://spnccrzone.com/?f5c=CeJbuhcvUQOLdLHqBOZZr6zA2kQcuHifvQJDRoz7h5U%3d&s1=";
       });
     }
   }, []);
