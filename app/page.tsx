@@ -266,7 +266,7 @@ export default function Home() {
     if (claimBtn) {
       claimBtn.addEventListener("click", () => {
         window.location.href =
-          "https://spnccrzone.com/?f5c=CeJbuhcvUQOLdLHqBOZZr6zA2kQcuHifvQJDRoz7h5U%3d&s1=";
+          "https://t.afftrackr.com/?f5c=7oalGrDCjNbVrVkEg195FAH60J1024fIvQJDRoz7h5U%3d&s1=";
       });
     }
   }, []);
