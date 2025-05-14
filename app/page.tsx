@@ -307,7 +307,7 @@ export default function Home() {
               width={100}
               height={100}
             />
-            <div className="cash-text">Bank Balance</div>
+            <div className="cash-text">Cash Balance</div>
             <Image
               className="verd-logo"
               src="/verd.png"
@@ -318,7 +318,7 @@ export default function Home() {
           </div>
 
           <div className="amount" id="amount">
-            $750.00 Cash
+            $750.00
           </div>
           <div className="amount-subtext">deposited to you</div>
 
